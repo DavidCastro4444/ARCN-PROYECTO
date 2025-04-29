@@ -1,0 +1,14 @@
+# Imagen base
+FROM openjdk:21-jdk-slim
+
+# Directorio de trabajo
+WORKDIR /app
+
+# Copiar el archivo .jar cuando lo construyas
+COPY target/ms-java-railway-1.0.0.jar app.jar
+
+# Exponer el puerto
+EXPOSE 8080
+
+# Comando para correr el microservicio
+ENTRYPOINT ["java", "-jar", "app.jar"]
